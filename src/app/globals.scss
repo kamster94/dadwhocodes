@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.page {
+  h2 {
+    @apply text-2xl mb-2;
+  }
+}
+
+a {
+  @apply text-primary;
+  display: inline-block;
+  position: relative;
+}
+
+a::after {
+  @apply bg-accent absolute w-full;
+  content: '';
+  transform: scaleX(0);
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+a:hover {
+  @apply text-accent
+}
+
+a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

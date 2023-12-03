@@ -1,6 +1,7 @@
-export default function Home() {
+export default function AboutMe() {
   return (
-    <div>
+    <div className='page'>
+      <h2>About me</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ex
         mauris, accumsan quis elit facilisis, consequat volutpat elit. In
