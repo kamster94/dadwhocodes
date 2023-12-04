@@ -6,12 +6,12 @@ import { TypeAnimation } from 'react-type-animation';
 const HeaderTitle = () => {
   return (
     <div className='flex flex-col p-4'>
-      <h1 className='text-4xl'>Dad Who Code</h1>
+      <h1 className='text-4xl'>Dad Who Codes</h1>
       <h4 className='text-xl'>
         <TypeAnimation
           sequence={[
             'Blog about code',
-            2000, // wait 1s before replacing "Mice" with "Hamsters"
+            2000,
             'Blog about parenting',
             2000,
             'Blog about other stuff',

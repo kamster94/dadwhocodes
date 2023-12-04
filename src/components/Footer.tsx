@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer>
       <div className='flex flex-col items-center'>
-        © Dad Who Code {currentYear > 2023 ? `2023-${currentYear}` : '2023'}
+        © Dad Who Codes {currentYear > 2023 ? `2023-${currentYear}` : '2023'}
       </div>
     </footer>
   );

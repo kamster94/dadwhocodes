@@ -9,7 +9,7 @@ import Footer from '@/components/Footer';
 const font = Lato({ subsets: ['latin'], weight: '400' });
 
 export const metadata: Metadata = {
-  title: 'Dad Who Code',
+  title: 'Dad Who Codes',
   description: 'Blog about coding & parenting & other stuff',
 };
 
