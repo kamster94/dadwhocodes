@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { JetBrains_Mono } from 'next/font/google';
 import classnames from 'classnames';
@@ -5,7 +7,8 @@ import Image from 'next/image';
 import logo from '../../public/logo.png';
 import HeaderTitle from '@/components/HeaderTitle';
 import Navigation from '@/components/Navigation';
-import Drawer from '@/components/Drawer';
+import MobileDrawer from '@/components/MobileDrawer';
+import 'react-modern-drawer/dist/index.css';
 
 const font = JetBrains_Mono({ subsets: ['latin'] });
 
@@ -18,8 +21,8 @@ const Header = () => {
         </div>
         <HeaderTitle />
       </div>
-      <Navigation className='hidden md:flex' />
-      <Drawer className='h-0 md:hidden' />
+      <Navigation className='hidden space-x-8 md:mt-4 md:flex' />
+      <MobileDrawer className='h-0 md:hidden' />
     </header>
   );
 };
