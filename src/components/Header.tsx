@@ -7,7 +7,6 @@ import Image from 'next/image';
 import logo from '../../public/logo.png';
 import HeaderTitle from '@/components/HeaderTitle';
 import Navigation from '@/components/Navigation';
-import MobileDrawer from '@/components/MobileDrawer';
 import 'react-modern-drawer/dist/index.css';
 
 const font = JetBrains_Mono({ subsets: ['latin'] });
@@ -22,7 +21,6 @@ const Header = () => {
         <HeaderTitle />
       </div>
       <Navigation className='hidden space-x-8 md:mt-4 md:flex' />
-      <MobileDrawer className='h-0 md:hidden' />
     </header>
   );
 };

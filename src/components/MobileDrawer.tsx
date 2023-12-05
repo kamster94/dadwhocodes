@@ -1,8 +1,13 @@
+'use client';
+
 import React from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import Navigation from '@/components/Navigation';
 import Drawer from 'react-modern-drawer';
 import classnames from 'classnames';
+import { JetBrains_Mono } from 'next/font/google';
+
+const font = JetBrains_Mono({ subsets: ['latin'] });
 
 interface Props {
   className?: string;
@@ -20,8 +25,8 @@ const MobileDrawer = ({ className }: Props) => {
       <button
         onClick={toggleDrawer}
         className={classnames(
-          'absolute left-0 top-0 m-6 inline-block rounded-lg bg-white p-2 transition-all duration-500 hover:cursor-pointer hover:text-accent',
-          isOpen ? 'left-64 z-[101] rotate-180' : ''
+          'absolute left-0 top-0 m-8 inline-block p-2 transition-all duration-500 hover:scale-110 hover:cursor-pointer hover:text-accent active:scale-100',
+          isOpen ? 'left-64 z-[101] rounded-lg bg-white dark:bg-gray-900' : ''
         )}
       >
         {isOpen ? (
@@ -35,9 +40,17 @@ const MobileDrawer = ({ className }: Props) => {
         open={isOpen}
         onClose={toggleDrawer}
         direction='left'
-        className=''
+        overlayColor=''
+        overlayClassName='bg-gray-900 dark:bg-gray-200'
       >
-        <Navigation className='flex flex-col space-x-0 space-y-4 px-6 py-4' />
+        <div className='h-full bg-white dark:bg-gray-900'>
+          <Navigation
+            className={classnames(
+              font.className,
+              'flex flex-col space-x-0 space-y-4 px-6 py-4'
+            )}
+          />
+        </div>
       </Drawer>
     </div>
   );
