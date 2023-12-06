@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-.page {
-  h2 {
-    @apply text-2xl mb-2;
+.article {
+  p {
+    @apply mb-2;
   }
 }
 
