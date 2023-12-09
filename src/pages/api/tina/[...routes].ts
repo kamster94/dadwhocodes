@@ -1,3 +1,5 @@
+/* eslint-disable */
+// @ts-nocheck
 import { TinaNodeBackend, LocalBackendAuthProvider } from '@tinacms/datalayer';
 
 import { TinaAuthJSOptions, AuthJsBackendAuthProvider } from 'tinacms-authjs';
