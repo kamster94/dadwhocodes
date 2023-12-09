@@ -9,6 +9,8 @@ import ThemeProvider from '@/components/ThemeProvider';
 import MobileDrawer from '@/components/MobileDrawer';
 import ThemeSwitch from '@/components/ThemeSwitch';
 import client from '@tina/databaseClient';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/react';
 
 const font = Lato({ subsets: ['latin'], weight: '400' });
 
@@ -60,6 +62,8 @@ export default async function RootLayout({
           </main>
           <Footer />
         </ThemeProvider>
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
