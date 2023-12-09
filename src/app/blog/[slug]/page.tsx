@@ -1,4 +1,4 @@
-import client from '@tina/client';
+import client from '@tina/databaseClient';
 import Post from '@/components/Post';
 
 export default async function SinglePost({
@@ -10,5 +10,9 @@ export default async function SinglePost({
     relativePath: params.slug + '.md',
   });
 
-  return <Post postQuery={{ data, query, variables }} />;
+  return (
+    <Post
+      postQuery={{ data: JSON.parse(JSON.stringify(data)), query, variables }}
+    />
+  );
 }

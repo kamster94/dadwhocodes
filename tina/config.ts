@@ -1,28 +1,37 @@
-import { defineConfig } from 'tinacms';
+import { defineConfig, LocalAuthProvider } from 'tinacms';
+import {
+  TinaUserCollection,
+  UsernamePasswordAuthJSProvider,
+} from 'tinacms-authjs/dist/tinacms';
 
-// Your hosting provider likely exposes this as an environment variable
 const branch =
   process.env.GITHUB_BRANCH ||
   process.env.VERCEL_GIT_COMMIT_REF ||
   process.env.HEAD ||
   'main';
 
+const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true';
+
 export default defineConfig({
+  authProvider: isLocal
+    ? new LocalAuthProvider()
+    : new UsernamePasswordAuthJSProvider(),
+  contentApiUrlOverride: '/api/tina/gql',
   branch,
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-  token: process.env.TINA_TOKEN,
   build: {
-    outputFolder: 'admin',
     publicFolder: 'public',
+    outputFolder: 'admin',
   },
   media: {
     tina: {
       mediaRoot: '',
       publicFolder: 'public',
+      static: true,
     },
   },
   schema: {
     collections: [
+      TinaUserCollection,
       {
         name: 'post',
         label: 'Posts',

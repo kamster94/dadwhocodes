@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import ThemeProvider from '@/components/ThemeProvider';
 import MobileDrawer from '@/components/MobileDrawer';
 import ThemeSwitch from '@/components/ThemeSwitch';
-import client from '@tina/client';
+import client from '@tina/databaseClient';
 
 const font = Lato({ subsets: ['latin'], weight: '400' });
 

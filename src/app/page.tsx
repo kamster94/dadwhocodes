@@ -1,4 +1,4 @@
-import client from '@tina/client';
+import client from '@tina/databaseClient';
 import PostsList from '@/components/PostsList';
 
 export default async function Home() {
@@ -6,5 +6,13 @@ export default async function Home() {
     filter: { draft: { eq: false } },
   });
 
-  return <PostsList postConnectionQuery={{ data, query, variables }} />;
+  return (
+    <PostsList
+      postConnectionQuery={{
+        data: JSON.parse(JSON.stringify(data)),
+        query,
+        variables,
+      }}
+    />
+  );
 }

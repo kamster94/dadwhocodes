@@ -1,4 +1,4 @@
-import client from '@tina/client';
+import client from '@tina/databaseClient';
 import Page from '@/components/Page';
 
 export default async function SinglePage({
@@ -10,5 +10,9 @@ export default async function SinglePage({
     relativePath: params.slug + '.md',
   });
 
-  return <Page pageQuery={{ data, query, variables }} />;
+  return (
+    <Page
+      pageQuery={{ data: JSON.parse(JSON.stringify(data)), query, variables }}
+    />
+  );
 }
