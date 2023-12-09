@@ -8,7 +8,9 @@ interface Props {
 
 const ArticleTitle = ({ children, className }: Props) => {
   return (
-    <h2 className={classnames('text-2xl font-bold', className)}>{children}</h2>
+    <h2 className={classnames('mb-2 text-2xl font-bold', className)}>
+      {children}
+    </h2>
   );
 };
 

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
-import Navigation from '@/components/Navigation';
+import Navigation, { PageLinkProps } from '@/components/Navigation';
 import Drawer from 'react-modern-drawer';
 import classnames from 'classnames';
 import { JetBrains_Mono } from 'next/font/google';
@@ -11,9 +11,10 @@ const font = JetBrains_Mono({ subsets: ['latin'] });
 
 interface Props {
   className?: string;
+  pages?: PageLinkProps[];
 }
 
-const MobileDrawer = ({ className }: Props) => {
+const MobileDrawer = ({ className, pages }: Props) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const toggleDrawer = () => {
@@ -49,6 +50,8 @@ const MobileDrawer = ({ className }: Props) => {
               font.className,
               'flex flex-col space-x-0 space-y-4 px-6 py-4'
             )}
+            pages={pages}
+            onLinkClick={toggleDrawer}
           />
         </div>
       </Drawer>

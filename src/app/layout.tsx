@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 import ThemeProvider from '@/components/ThemeProvider';
 import MobileDrawer from '@/components/MobileDrawer';
 import ThemeSwitch from '@/components/ThemeSwitch';
+import client from '@tina/client';
 
 const font = Lato({ subsets: ['latin'], weight: '400' });
 
@@ -16,7 +17,32 @@ export const metadata: Metadata = {
   description: 'Blog about coding & parenting & other stuff',
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  const pageResponse = (
+    await client.queries.pageConnection({
+      filter: { draft: { eq: false } },
+    })
+  ).data.pageConnection.edges;
+  const pages = pageResponse?.map((page) => ({
+    route: removeExtensionFromFilename(page?.node?._sys.filename),
+    label: page?.node?.title,
+  }));
+
+  function removeExtensionFromFilename(filename?: string) {
+    if (!filename) {
+      return undefined;
+    }
+    const dotIndex = filename.lastIndexOf('.');
+    if (dotIndex === -1) {
+      return filename;
+    }
+    return filename.substring(0, dotIndex);
+  }
+
   return (
     <html lang='en'>
       <body
@@ -26,9 +52,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         )}
       >
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          <MobileDrawer className='h-0 md:hidden' />
+          <MobileDrawer className='h-0 md:hidden' pages={pages} />
           <ThemeSwitch />
-          <Header />
+          <Header pages={pages} />
           <main className='mx-auto mb-auto flex w-full px-8 text-justify'>
             {children}
           </main>

@@ -2,11 +2,14 @@
 
 import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
+import Link from 'next/link';
 
 const HeaderTitle = () => {
   return (
     <div className='flex flex-col p-4'>
-      <h1 className='text-4xl'>Dad Who Codes</h1>
+      <Link href='/' className='noaccent'>
+        <h1 className='text-4xl'>Dad Who Codes</h1>
+      </Link>
       <h4 className='text-xl'>
         <TypeAnimation
           sequence={[

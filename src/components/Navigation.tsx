@@ -1,16 +1,36 @@
 import React from 'react';
 import Link from 'next/link';
 
-interface Props {
-  className?: string;
+export interface PageLinkProps {
+  route?: string;
+  label?: string;
 }
 
-const Navigation = ({ className }: Props) => {
+interface Props {
+  className?: string;
+  pages?: PageLinkProps[];
+  onLinkClick?: () => void;
+}
+
+const Navigation = ({ className, pages, onLinkClick }: Props) => {
   return (
     <nav className={className}>
-      <Link href='/'>Blog</Link>
-      <Link href='/about-me'>About me</Link>
-      <Link href='/my-projects'>My projects</Link>
+      <Link href='/' onClick={onLinkClick}>
+        Blog
+      </Link>
+      {pages?.map((page, index) => {
+        if (page.route && page.label) {
+          return (
+            <Link
+              key={index}
+              href={`/pages/${page.route}`}
+              onClick={onLinkClick}
+            >
+              {page.label}
+            </Link>
+          );
+        }
+      })}
     </nav>
   );
 };

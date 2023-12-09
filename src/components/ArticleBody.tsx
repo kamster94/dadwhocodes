@@ -8,7 +8,7 @@ interface Props {
 
 const ArticleBody = ({ children, className }: Props) => {
   return (
-    <div className={classnames('article mb-8', className)}>{children}</div>
+    <div className={classnames('article mb-8 mt-4', className)}>{children}</div>
   );
 };
 
