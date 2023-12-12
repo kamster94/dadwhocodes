@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
-import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
@@ -19,14 +20,15 @@ const ThemeSwitch = () => {
   return (
     <button
       className={
-        'absolute right-0 top-0 m-8 w-fit p-2 duration-500 hover:scale-110 hover:cursor-pointer hover:text-accent active:scale-100'
+        'absolute right-0 top-0 m-6 w-fit p-2 duration-500 hover:scale-110 hover:cursor-pointer hover:text-accent' +
+        ' active:scale-100'
       }
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
     >
       {theme === 'light' ? (
-        <MoonIcon width={32} height={32} />
+        <FontAwesomeIcon size='xl' icon={faMoon} />
       ) : (
-        <SunIcon width={32} height={32} />
+        <FontAwesomeIcon size='xl' icon={faSun} />
       )}
     </button>
   );

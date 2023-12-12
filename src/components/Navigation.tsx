@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 export interface PageLinkProps {
   route?: string;
@@ -31,6 +33,22 @@ const Navigation = ({ className, pages, onLinkClick }: Props) => {
           );
         }
       })}
+      <span className='ml-auto flex flex-row gap-8'>
+        <a
+          href='https://github.com/kamster94'
+          target='_blank'
+          className='noaccent text-black hover:text-accent dark:text-gray-200 dark:hover:text-accent'
+        >
+          <FontAwesomeIcon icon={faGithub} size='lg' className='' />
+        </a>
+        <a
+          href='https://www.linkedin.com/in/kamil-chmielewski-597b93146'
+          target='_blank'
+          className='noaccent text-black hover:text-accent dark:text-gray-200 dark:hover:text-accent'
+        >
+          <FontAwesomeIcon icon={faLinkedin} size='lg' className='' />
+        </a>
+      </span>
     </nav>
   );
 };

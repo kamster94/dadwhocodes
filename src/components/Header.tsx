@@ -27,7 +27,7 @@ const Header = ({ pages }: Props) => {
         </div>
         <HeaderTitle />
       </div>
-      <Navigation className='hidden space-x-8 md:mt-4 md:flex' pages={pages} />
+      <Navigation className='hidden gap-8 md:mt-4 md:flex' pages={pages} />
     </header>
   );
 };

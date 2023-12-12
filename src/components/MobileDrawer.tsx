@@ -1,11 +1,12 @@
 'use client';
 
 import React from 'react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import Navigation, { PageLinkProps } from '@/components/Navigation';
 import Drawer from 'react-modern-drawer';
 import classnames from 'classnames';
 import { JetBrains_Mono } from 'next/font/google';
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const font = JetBrains_Mono({ subsets: ['latin'] });
 
@@ -26,14 +27,15 @@ const MobileDrawer = ({ className, pages }: Props) => {
       <button
         onClick={toggleDrawer}
         className={classnames(
-          'absolute left-0 top-0 m-8 inline-block p-2 transition-all duration-500 hover:scale-110 hover:cursor-pointer hover:text-accent active:scale-100',
+          'absolute left-0 top-0 m-6 inline-block p-2 transition-all duration-500 hover:scale-110' +
+            ' hover:cursor-pointer hover:text-accent active:scale-100',
           isOpen ? 'left-64 z-[101] rounded-lg bg-white dark:bg-gray-900' : ''
         )}
       >
         {isOpen ? (
-          <XMarkIcon width={32} height={32} />
+          <FontAwesomeIcon size='xl' icon={faXmark} />
         ) : (
-          <Bars3Icon width={32} height={32} />
+          <FontAwesomeIcon size='xl' icon={faBars} />
         )}
       </button>
       <Drawer
